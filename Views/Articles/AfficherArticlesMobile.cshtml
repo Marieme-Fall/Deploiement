@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProjetInventaire.Models.Article>
+@{
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+    ViewBag.Title = "Articles";
+}
+
+
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider"></li>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="Articles/Details/@item.IdArticles">
+                <h3>
+                    @item.Nom
+                </h3>
+                <h3>
+                    @item.Description
+                </h3>
+                <h3>
+                    @item.Date
+                </h3>
+                <h3>
+                    @item.Quantite
+                </h3>
+                <h3>
+                    @item.Localisation
+                </h3>
+
+
+            </a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ProjetInventaire.Models.Article>
+
+
+@{
+    ViewBag.Title = "AfficherArticles";
+}
+
+@using (Html.BeginForm("AfficherArticles", "Articles", FormMethod.Get))
+    
+        {
+
+    <div>
+        <br />
+
+        Nom: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" />
+    </div>
+        <p>
+            </p>
+
+        }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Quantite)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Localisation)
+            </th>
+
+           
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantite)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localisation)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Modifier", "Modifier", new { id = item.IdArticles }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdArticles }) |
+                    @Html.ActionLink("Sorties", "Sorties", new { id = item.IdArticles })|
+                    @Html.ActionLink("Achats", "Achats", new { id = item.IdArticles })|
+
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,31 @@
+﻿@model ProjetInventaire.Models.Article
+@{
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+    ViewBag.Title = "Details";
+}
+
+@section Header{
+    <div data-role="button" data-icon="arrow-l" data-rel="back" class="ui-btn-left">
+        @Html.ActionLink("Back", "Back")
+    </div>
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">
+        <h2>@Model.Nom</h2>
+    </li>
+    <li>
+        <div style="padding: 3px">IdArticles: @Model.IdArticles</div>
+        <div style="padding: 3px">Description: @Model.Description</div>
+        <div style="padding: 3px">Date: @Model.Date</div>
+        <div style="padding: 3px">Quantite: @Model.Quantite</div>
+        <div style="padding: 3px">Localisation: @Model.Localisation</div>
+        /li>
+</ul>
+@using (Html.BeginForm("Modifier", "Article", new { id = Model.IdArticles }, System.Web.Mvc.FormMethod.Get))
+{
+    <button id="Modifier" name="Modifier" data-role="button" data-icon="grid">Modifier</button>
+}
+@using (Html.BeginForm("Sorties", "Article", new { id = Model.IdArticles }, System.Web.Mvc.FormMethod.Get))
+{
+    <button id="Sorties" name="Sorties" data-role="button" data-icon="Sorties">Sorties</button>
+}

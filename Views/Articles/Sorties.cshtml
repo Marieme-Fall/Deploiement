@@ -1,0 +1,80 @@
+﻿@model ProjetInventaire.Models.Article
+
+@{
+    ViewBag.Title = "Sorties";
+}
+
+<h2>Sorties d'articles</h2>
+
+<h3>Etes-vous sur de vouloir prendre cette article?</h3>
+@ViewBag.msg
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantite)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Localisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localisation)
+        </dd>
+
+
+
+    </dl>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SortiesPar, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SortiesPar, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            @Html.ValidationMessageFor(model => model.SortiesPar, "", new { @class = "text-danger" })
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sorties" class="btn btn-default" /> |
+
+
+
+                @Html.ActionLink("Back to List", "AfficherArticles")
+
+
+
+            </div>
+        }
+    </div>
+

@@ -1,0 +1,79 @@
+﻿
+@model ProjetInventaire.Models.Login
+
+@{
+    ViewBag.Title = "Connection";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width-device-width" />
+    <title>LOGIN</title>
+
+</head>
+<body>
+
+    @ViewBag.msg
+    <div id="login-div">
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">Connection</td>
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Nom_Dutilisateur)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Nom_Dutilisateur)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Nom_Dutilisateur)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Mot_de_Passe)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Mot_de_Passe)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Mot_de_Passe)</td>
+                </tr>
+                <tr>
+                    <td></td>
+
+                    <td>
+
+
+                        <input type="submit" value="Connecter" class="btn btn-default" />
+                        <input type="submit" value="Retour" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+        }
+
+    <div class="jumbotron">
+        <img src="~/image/Fenêtre Magistral.jpg" width="1050" height="500" class="d-inline-block align-top" alt="">
+        <style>
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+    </div>
+    </div>
+
+
+</body>
+</html>
+

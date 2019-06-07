@@ -1,0 +1,58 @@
+﻿
+@model IEnumerable<ProjetInventaire.Models.SortiesUtilisation>
+@{
+    ViewBag.Title = "EnregitreSorties";
+}
+
+<h2>EnregitreSorties</h2>
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Localisation)
+        </th>
+        
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantite)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Localisation)
+    </td>
+   
+
+</tr>
+
+}
+
+</table>
+
+@Html.ActionLink("Back to List", "AfficherArticles", "Articles")
+

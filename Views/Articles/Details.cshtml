@@ -1,0 +1,58 @@
+﻿@model ProjetInventaire.Models.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+    /dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantite)
+        <dt>
+            @Html.DisplayNameFor(model => model.Localisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localisation)
+        </dd>
+      
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Modifier", new { id = Model.IdArticles }) |
+    @Html.ActionLink("Back to List", "AfficherArticles")
+</p>
